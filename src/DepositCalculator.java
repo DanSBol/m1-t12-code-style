@@ -14,7 +14,6 @@ public class DepositCalculator {
 
     double round(double value, int exponent) {
         double scale = Math.pow(10, exponent);
-
         return Math.round(value * scale) / scale;
     }
 
@@ -29,12 +28,9 @@ public class DepositCalculator {
         depositPeriod = scanner.nextInt();
         System.out.println("Выберите тип вклада, 1 - вклад с обычным процентом, 2 - вклад с капитализацией:");
         action = scanner.nextInt();
-
         double finResult = 0;
-
-        if (action == 1) {
-            finResult = calculateWithoutCapitalization(amount, YEAR_RATE, depositPeriod);
-        } else if (action == 2) {
+        if (action == 1) finResult = calculateWithoutCapitalization(amount, YEAR_RATE, depositPeriod);
+        else if (action == 2) {
             finResult = calculateWithCapitalization(amount, YEAR_RATE, depositPeriod);
         }
         System.out.println("Результат вклада: " + amount + " за " + depositPeriod + " лет превратятся в " + finResult);
